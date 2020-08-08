@@ -2,6 +2,11 @@
     "name": "node-red-contrib-tfjs-coco-ssd",
     "version": "0.4.1",
     "description": "A Node-RED node that uses tensorflowjs for object detection.",
+    "scripts": {
+        "copy-custom-tf-lib": "cp tf-lib/custom-binary.json ../@tensorflow/tfjs-node/scripts",
+	"reinstall-tfjs-node": "cd ../@tensorflow/tfjs-node && npm install",
+        "postinstall": "npm run copy-custom-tf-lib && npm run reinstall-tfjs-node"
+    },
     "dependencies": {
         "@tensorflow-models/coco-ssd": "~2.0.1",
         "@tensorflow/tfjs-node": "1.7.3",
